@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "98501448039",
+    "project_id": "ctse-lab-4-c45df",
+    "storage_bucket": "ctse-lab-4-c45df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98501448039:android:ad098545a15243ba239fc2",
+        "android_client_info": {
+          "package_name": "com.example.cake_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98501448039-j1stb7eflp0jd573j682o5v4smfsr7vl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdS5QXFze-Vmv4zDmnRCjcAZcQYaKciSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "98501448039-j1stb7eflp0jd573j682o5v4smfsr7vl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
