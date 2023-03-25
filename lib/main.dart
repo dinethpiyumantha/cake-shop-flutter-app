@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cake_shop/screens/category/categories.dart';
 import 'package:cake_shop/screens/category/create.dart';
 import 'package:cake_shop/screens/primary/home.dart';
@@ -38,23 +40,24 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
       ),
       routes: {
+        // '/': (context) => SplashScreen(),
         '/home': (context) => HomeScreen(),
         '/recipies': (context) => RecipeScreen(),
         '/recipiesAdd': (context) => NewRecipeForm(),
         '/categories': (context) => CategoryScreen(),
         '/categoriesAdd': (context) => NewCategoryForm(),
       },
-      home: CategoryScreen(),
-      // home: StreamBuilder<User?>(
-      //   stream: FirebaseAuth.instance.authStateChanges(),
-      //   builder: (context, snapshot) {
-      //     if (snapshot.hasData) {
-      //       return HomeScreen();
-      //     } else {
-      //       return const AuthScreen();
-      //     }
-      //   },
-      // ),
+      // home: SplashScreen(),
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return HomeScreen();
+          } else {
+            return const AuthScreen();
+          }
+        },
+      ),
     );
   }
 }
@@ -183,6 +186,37 @@ class _AuthScreenState extends State<AuthScreen> {
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 5), () {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (BuildContext context) => HomeScreen(),
+      ));
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Image.asset(
+          Images.LOGO,
+          height: 100,
+          width: 100,
         ),
       ),
     );
