@@ -5,56 +5,56 @@ import '../../images/images.dart';
 import '../primary/navigations.dart';
 import 'edit.dart';
 
-class Category {
+class Recipe {
   final String id;
-  final String categoryType;
+  final String recipeType;
   final String description;
 
-  Category({
+  Recipe({
     required this.id,
-    required this.categoryType,
+    required this.recipeType,
     required this.description,
   });
 }
 
 Future<List<Map<String, String>>> fetchCategories() async {
   final QuerySnapshot<Map<String, dynamic>> querySnapshot =
-      await FirebaseFirestore.instance.collection('categories').get();
+      await FirebaseFirestore.instance.collection('recipies').get();
 
-  final List<Map<String, String>> categories = [];
+  final List<Map<String, String>> recipies = [];
 
   for (final DocumentSnapshot<Map<String, dynamic>> documentSnapshot
       in querySnapshot.docs) {
-    final Map<String, String> category = {
+    final Map<String, String> recipe = {
       "id": documentSnapshot.id,
-      "categoryType": documentSnapshot.data()!['categoryType'] as String,
+      "recipeType": documentSnapshot.data()!['recipeType'] as String,
       "description": documentSnapshot.data()!['description'] as String,
     };
 
-    categories.add(category);
+    recipies.add(recipe);
   }
 
-  return categories;
+  return recipies;
 }
 
-class CategoryScreen extends StatefulWidget {
+class RecipeScreen extends StatefulWidget {
   @override
-  State<CategoryScreen> createState() => _CategoryScreenState();
+  State<RecipeScreen> createState() => _RecipeScreenState();
 }
 
-class _CategoryScreenState extends State<CategoryScreen> {
+class _RecipeScreenState extends State<RecipeScreen> {
   List<Map<String, String>> sampleData = [
     {
       "id": "mdg2XFOZZpDrJsIM0N3k",
-      "categoryType": "Card 1",
+      "recipeType": "Card 1",
       "description": "Subtitle 1"
     },
   ];
 
   void loadCategories() async {
-    final categories = await fetchCategories();
+    final recipies = await fetchCategories();
     setState(() {
-      sampleData = categories;
+      sampleData = recipies;
     });
   }
 
@@ -70,7 +70,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
       child: Scaffold(
         floatingActionButton: ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, "/categoriesAdd");
+            Navigator.pushNamed(context, "/recipiesAdd");
           },
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
@@ -90,7 +90,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           backgroundColor: Colors.white,
           leading: null,
           title: const Text(
-            'Categories',
+            'Recipies',
             style: TextStyle(color: Colors.black87),
           ),
         ),
@@ -103,18 +103,18 @@ class _CategoryScreenState extends State<CategoryScreen> {
             itemCount: sampleData.length,
             itemBuilder: (context, index) {
               return GradientCard(
-                startColor: Colors.black87,
-                endColor: Colors.black,
-                category: sampleData[index],
+                startColor: Colors.pink,
+                endColor: Colors.deepOrange,
+                recipe: sampleData[index],
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      sampleData[index]['categoryType']!.toUpperCase(),
+                      sampleData[index]['recipeType']!.toUpperCase(),
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,
-                        color: Colors.deepOrange,
+                        color: Colors.white,
                       ),
                     ),
                     const SizedBox(height: 8.0),
@@ -131,7 +131,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             },
           ),
         ),
-        bottomNavigationBar: Navigations.BottomBarNavigate(context, 2),
+        bottomNavigationBar: Navigations.BottomBarNavigate(context, 1),
       ),
     );
   }
@@ -142,13 +142,13 @@ class GradientCard extends StatelessWidget {
   final Color startColor;
   final Color endColor;
   final Widget child;
-  final Map<String, dynamic> category;
+  final Map<String, dynamic> recipe;
 
   GradientCard({
     required this.startColor,
     required this.endColor,
     required this.child,
-    required this.category,
+    required this.recipe,
   });
 
   @override
@@ -158,8 +158,8 @@ class GradientCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CategoryDetailsScreen(
-              category: this.category,
+            builder: (context) => RecipeDetailsScreen(
+              recipe: this.recipe,
             ),
           ),
         );
@@ -177,9 +177,9 @@ class GradientCard extends StatelessWidget {
           // ),
           borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(7.0),
-              bottomRight: Radius.circular(40.0),
+              bottomRight: Radius.circular(7.0),
               topLeft: Radius.circular(7.0),
-              topRight: Radius.circular(40.0)),
+              topRight: Radius.circular(7.0)),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),

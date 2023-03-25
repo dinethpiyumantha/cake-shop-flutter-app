@@ -1,6 +1,8 @@
 import 'package:cake_shop/screens/category/categories.dart';
 import 'package:cake_shop/screens/category/create.dart';
 import 'package:cake_shop/screens/primary/home.dart';
+import 'package:cake_shop/screens/recipies/create.dart';
+import 'package:cake_shop/screens/recipies/recipies.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +38,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
       ),
       routes: {
+        '/home': (context) => HomeScreen(),
+        '/recipies': (context) => RecipeScreen(),
+        '/recipiesAdd': (context) => NewRecipeForm(),
         '/categories': (context) => CategoryScreen(),
         '/categoriesAdd': (context) => NewCategoryForm(),
       },
