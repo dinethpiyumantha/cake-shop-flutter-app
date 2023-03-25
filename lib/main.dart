@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:cake_shop/screens/category/categories.dart';
 import 'package:cake_shop/screens/category/create.dart';
+import 'package:cake_shop/screens/delivery/addresses.dart';
+import 'package:cake_shop/screens/delivery/create.dart';
 import 'package:cake_shop/screens/primary/home.dart';
 import 'package:cake_shop/screens/recipies/create.dart';
 import 'package:cake_shop/screens/recipies/recipies.dart';
@@ -43,7 +45,9 @@ class MyApp extends StatelessWidget {
         // '/': (context) => SplashScreen(),
         '/home': (context) => HomeScreen(),
         '/recipies': (context) => RecipeScreen(),
+        '/deliveries': (context) => DeliveryScreen(),
         '/recipiesAdd': (context) => NewRecipeForm(),
+        '/deliveriesAdd': (context) => NewDeliveryForm(),
         '/categories': (context) => CategoryScreen(),
         '/categoriesAdd': (context) => NewCategoryForm(),
       },

@@ -21,8 +21,8 @@ class Navigations {
           label: 'Categories',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
-          label: 'Favorites',
+          icon: Icon(Icons.delivery_dining),
+          label: 'Delivery',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
@@ -35,7 +35,7 @@ class Navigations {
           '/home',
           '/recipies',
           '/categories',
-          '/favorites',
+          '/deliveries',
           '/profile'
         ];
 
