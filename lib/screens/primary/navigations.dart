@@ -25,7 +25,7 @@ class Navigations {
           label: 'Delivery',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: Icon(Icons.currency_bitcoin),
           label: 'Profile',
         ),
       ],
@@ -36,7 +36,7 @@ class Navigations {
           '/recipies',
           '/categories',
           '/deliveries',
-          '/profile'
+          '/offers'
         ];
 
         Navigator.pushNamed(context, routes[i]);
