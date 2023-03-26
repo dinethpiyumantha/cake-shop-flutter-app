@@ -31,10 +31,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        // body: Padding(
-        //   padding: const EdgeInsets.all(16.0),
-        //   child: Center(child: SizedBox()),
-        // ),
         body: ListView(
             // Set the background color of the container
 
@@ -124,6 +120,49 @@ class HomeScreen extends StatelessWidget {
                   viewportFraction: 0.8,
                 ),
               ),
+              SizedBox(height: 20),
+              Container(
+                  height: 150,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 252, 229, 229),
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(8),
+                      bottomLeft: Radius.circular(8),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 4,
+                        color: Colors.grey,
+                        spreadRadius: 0,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Description",
+                          style: TextStyle(
+                              //fontFamily: TextFontFamily.SEN_BOLD,
+                              fontSize: 18,
+                              color: Colors.black),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          "Lorem Ipsum is simply dummy text of the printing"
+                          "and typesetting industry. Lorem Ipsum has been the"
+                          "indu stry's standard dummy text ever since the"
+                          "1500s, whe an unknown printer took a galley of type"
+                          "and sc rambled it to make a type printer took a...",
+                          style: TextStyle(
+                              height: 1.3,
+                              //fontFamily: TextFontFamily.SEN_REGULAR,
+                              fontSize: 13,
+                              color: Colors.grey[900]),
+                        ),
+                      ])),
             ]),
         bottomNavigationBar: Navigations.BottomBarNavigate(context, 0));
   }

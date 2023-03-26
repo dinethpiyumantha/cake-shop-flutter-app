@@ -12,7 +12,6 @@ import 'package:cake_shop/screens/recipies/recipies.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
 import './auth/auth.dart';
 import 'images/images.dart';
 
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
       ),
       routes: {
-        // '/': (context) => SplashScreen(),
+        //'/': (context) => SplashScreen(),
         '/home': (context) => HomeScreen(),
         '/recipies': (context) => RecipeScreen(),
         '/offers': (context) => OfferScreen(),
@@ -200,33 +199,33 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 }
 
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
+// class SplashScreen extends StatefulWidget {
+//   @override
+//   _SplashScreenState createState() => _SplashScreenState();
+// }
 
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(Duration(seconds: 5), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (BuildContext context) => HomeScreen(),
-      ));
-    });
-  }
+// class _SplashScreenState extends State<SplashScreen> {
+//   @override
+//   void initState() {
+//     super.initState();
+//     Timer(Duration(seconds: 5), () {
+//       Navigator.of(context).pushReplacement(MaterialPageRoute(
+//         builder: (BuildContext context) => HomeScreen(),
+//       ));
+//     });
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Image.asset(
-          Images.LOGO,
-          height: 100,
-          width: 100,
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       body: Center(
+//         child: Image.asset(
+//           Images.LOGO,
+//           height: 100,
+//           width: 100,
+//         ),
+//       ),
+//     );
+//   }
+// }

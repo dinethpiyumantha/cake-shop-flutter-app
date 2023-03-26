@@ -99,6 +99,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
             horizontal: 20,
             vertical: 10,
           ),
+
           child: ListView.builder(
             itemCount: sampleData.length,
             itemBuilder: (context, index) {
@@ -130,6 +131,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
               );
             },
           ),
+          // )]
         ),
         bottomNavigationBar: Navigations.BottomBarNavigate(context, 1),
       ),
